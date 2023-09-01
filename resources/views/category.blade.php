@@ -23,8 +23,8 @@
 <body class="d-flex justify-content-center " >
 <div class=" mt-8 ">
     <div class="dropdown mt-5">
+        <h1>Main Category</h1>
         <select name="main_category" id="main_category" class="form-control SelectBox btn btn-secondary ">
-            <h1>Main Category</h1>
             <option selected disabled>Select Category </option>
             @foreach($categories as $category)
                 <option class="btn btn-light "  value="{{$category->id}}">{{$category->name}}</option>
@@ -53,12 +53,15 @@
                     type: "GET",
                     dataType: "json",
                     success: function(data) {
-                        var e = $('<div class="SUB_'+main_category_name.substring(0,4)+' dropdown d-flex  mt-5"><select class="sub_category form-control SelectBox btn btn-secondary"  id="'+main_category_name+'"><option selected disabled>Select Sub Category </option></select></div>');
-                        $('.to_append').append(e);
-                        $.each(data, function(key, value) {
-                            $('select[id="'+main_category_name+'"]').append('<option value="' +
-                                value['id'] + '">' + value['name'] + '</option>');
-                        });
+                        if(!$("#" + main_category_id).length) {
+                            console.log(main_category_id);
+                            var e = $('<div class="SUB_'+main_category_name.substring(0,4)+' dropdown  mt-5"><h3>'+main_category_name+'</h3><select class="sub_category form-control SelectBox btn btn-secondary"  id="'+main_category_id+'"><option selected disabled>Select Sub Category </option></select></div>');
+                            $('.to_append').append(e);
+                            $.each(data, function(key, value) {
+                                $('select[id="'+main_category_id+'"]').append('<option value="' +
+                                    value['id'] + '">' + value['name'] + '</option>');
+                            });
+                        }
                     }})
             } else {
                 console.log('AJAX OF PRODUCTS load did not work');
@@ -74,13 +77,15 @@
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    var e = $('<div class="'+sub_category_name.substring(0,3)+'_'+sub_category_name.substring(4,5)+' d-flex dropdown mt-5"><select class="sub_category form-control SelectBox btn btn-secondary"  id="'+sub_category_id+'"><option selected disabled>Select Sub Category </option></select></div>');
-                    $(e).insertAfter($(this).closest('.dropdown')); // Insert after the parent dropdown
+                    if(!$("#" + sub_category_id).length) {
+                        var e = $('<div class="' + sub_category_name.substring(0, 3) + '_' + sub_category_name.substring(4, 5) + ' dropdown mt-5"><h3  class="mr-4 row">' + sub_category_name + '</h3><select class="sub_category form-control SelectBox btn btn-secondary"  id="' + sub_category_id + '"><option selected disabled>Select Sub Category </option></select></div>');
+                        $(e).insertAfter($(this).closest('.dropdown')); // Insert after the parent dropdown
 
-                    $.each(data, function(key, value) {
-                        $('select[id="'+sub_category_id+'"]').append('<option value="' +
-                            value['id'] + '">' + value['name'] + '</option>');
-                    });
+                        $.each(data, function (key, value) {
+                            $('select[id="' + sub_category_id + '"]').append('<option value="' +
+                                value['id'] + '">' + value['name'] + '</option>');
+                        });
+                    }
                 }.bind(this) // Bind the success function to maintain the correct context
             });
         } else {
