@@ -1,67 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Category Subcategory Selection Tool
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a project that demonstrates a category and subcategory selection tool with unlimited levels of subcategories. It is built using [framework name], following the MVC pattern. The project utilizes a database to store the categories and subcategories.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Main categories select box
+- Unlimited levels of subcategories of parent categories (up to 3 levels are hard-coded for simplicity)
+- Ajax for dynamically populating subcategory select boxes
+- Git version control for project management and collaboration
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+To run this project locally, follow these steps:
 
-## Learning Laravel
+1. Clone the repository from GitHub:
+2. Install the necessary dependencies:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+Composer Install
+````
+3. Configure the database connection:
+- copy .env.example to .env file :
+```
+cp .env.example .env
+```  
+- Open the configuration file located at `.env`.
+- Update the database connection details (e.g., hostname, username, password) to match your local environment.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. Set up the database:
+run this Command to create DB tablees (Only one table categories) 
+```
+php artisan db:seed
+```
+5. Launch the application:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+````
+php artisan serve
+````
+OR Xamp directly 
 
-## Laravel Sponsors
+6. Open your web browser and access the application at `http://localhost:[port]/<Folder-NAME>/public`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Usage
 
-### Premium Partners
+Once the application is up and running, you can use the category and subcategory selection tool as follows:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Start by selecting a main category from the dropdown list.
+
+2. Based on your selection, the tool will dynamically populate the subcategory dropdown list with the corresponding subcategories.
+
+3. If a subcategory has further levels of subcategories, selecting a subcategory will trigger the creation of additional dropdown lists for the subsequent sublevels.
+
+4. Continue selecting categories and subcategories until you have reached the desired level.
+
+5. You can repeat the process for different main categories or reset the selection to start over.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+If you would like to contribute to this project, please follow these steps:
 
-## Code of Conduct
+1. Fork the repository on GitHub.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. Create a new branch for your feature or bug fix.
 
-## Security Vulnerabilities
+3. Implement your changes, adhering to the coding style and conventions of the project.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Test your changes thoroughly.
 
-## License
+5. Commit your changes and push them to your forked repository.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Categories
+6. Submit a pull request, detailing the changes you have made and explaining their purpose.
+
+7. Wait for the project maintainers to review your pull request and provide feedback.
+
+
+## Contact
+
+If you have any questions or need further assistance with this project, please feel free to contact Mohamed Khattab at mohamedahhkhattab@gmail.com .
+
